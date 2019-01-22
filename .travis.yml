@@ -1,0 +1,9 @@
+sudo: enabled
+services:
+  - docker
+
+before_install:
+  - docker build -t rgommezz/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run rgommezz/docker-react npm run test -- --coverage
